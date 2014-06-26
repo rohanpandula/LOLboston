@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Line of Life</title>
+
+
+  </head>
+  <body>
+
+    <header class="bs-header">
+    </header>
+    <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 main-container">
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Template: Color Selector/Question Form-->
+<br>
+    <h2 class="page-header text-center">Share your portrait! Join the Comm<u>unity</u></h2>
+      <center>
+        <div class="frame">
+          <% if @uploaded_pic %>
+            <%= image_tag @uploaded_pic.pic %>
+          <% else %>
+            <%= image_tag '/assets/shapes/default.png', class: 'placeholder' %>
+          <% end %>
+        </div>
+      </center>
+        <%= form_for @pic do |f| %>
+
+
+          <h2 class="page-header text-center">Select a Color</h2>
+          <div class="container">
+            <div id="centered">
+              <div id="yellow" class="colors">
+               <a href="" id="yellow"><%= image_tag "/assets/shapes/yellowshape.svg" %></a>
+               <%= f.radio_button :shape, :yellow_mask %>
+              </div>
+              <div id="pink" class="colors">
+                <%= image_tag "/assets/shapes/pinkshape.svg" %>
+                <%= f.radio_button :shape, :pink_mask %>
+              </div>
+              <div id="red" class="colors">
+                <%= image_tag "/assets/shapes/redshape.svg" %>
+                <%= f.radio_button :shape, :red_mask %>
+              </div>
+              <div id="blue" class="colors">
+                <%= image_tag "/assets/shapes/blueshape.svg" %>
+                <%= f.radio_button :shape, :blue_mask %>
+              </div>
+              <div id="green" class="colors">
+                <%= image_tag "/assets/shapes/greenshape.svg" %>
+                <%= f.radio_button :shape, :green_mask %>
+              </div>
+              <div id="purple" class="colors">
+                <%= image_tag "/assets/shapes/purpleshape.svg" %>
+                <%= f.radio_button :shape, :purple_mask %>
+              </div>
+              <div id="cyan" class="colors">
+                <%= image_tag "/assets/shapes/cyanshape.svg" %>
+                <%= f.radio_button :shape, :cyan_mask %>
+              </div>
+              <div id="orange" class="colors">
+                <%= image_tag "/assets/shapes/orangeshape.svg" %>
+                <%= f.radio_button :shape, :orange_mask %>
+              </div>
+            </div>
+          </div>
+
+<br><br><br>
+          <div class="form-group">
+            <div class="col-sm-offset-4 col-sm-3"> <%= f.file_field :pic %>
+              <%= f.submit "Submit", class: 'btn btn-outline btn-lg btn-block' %>
+            </div>
+
+          </div>
+        <% end %>
+
+    <!--
+    <script src="vendor/backbone/backbone.js"></script>
+    <script src="vendor/ink/filepicker.js"></script>
+    !-->
+   <!--
+    <script src="app/js/models/user.js"></script>
+    <script src="app/js/collections/images.js"></script>
+    <script src="app/js/views/image.js"></script>
+    <script src="app/js/views/gallery.js"></script>
+    <script src="app/js/views/questionForm.js"></script>
+    <script src="app/js/router.js"></script>!-->
+
+    <script>
+      // Passing in default Images to populate gallery
+      $(function() {
+        ImageLoader.start({
+          images: [
+            {
+              id: 1,
+              name : 'name',
+              email: 'email@abc.com',
+            },
+            {
+              id: 2,
+              name : 'name',
+              email: 'email@abc.com'
+            },
+            {
+              id: 3,
+              name : 'name',
+              email: 'email@abc.com'
+            },
+            {
+              id: 4,
+              name : 'name',
+              email: 'email@abc.com'
+            },
+            {
+              id: 5,
+              name : 'name',
+              email: 'email@abc.com'
+            },
+            {
+              id: 6,
+              name : 'name',
+              email: 'email@abc.com'
+            }
+          ]
+        });
+      });
+    </script>
+  </body>
+</html>
